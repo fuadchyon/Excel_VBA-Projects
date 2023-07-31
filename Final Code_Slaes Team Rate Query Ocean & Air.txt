@@ -1,0 +1,174 @@
+Sub Clear_data()
+'
+' Clear_data Macro
+' Clear all the data.
+'
+
+'
+    Range("C9:C10").Select
+    Selection.ClearContents
+    Range("C12").Select
+    Selection.ClearContents
+    Range("C14").Select
+    Selection.ClearContents
+    Range("F9:F14").Select
+    Selection.ClearContents
+    Range("I9:I14").Select
+    Selection.ClearContents
+    Range("B17").Select
+    Selection.ClearContents
+End Sub
+
+Sub sendmail()
+Dim outlook As Object
+Dim newEmail As Object
+Dim xInspect As Object
+Dim pageEditor As Object
+Dim strbdy As String
+
+
+Set outlook = CreateObject("Outlook.Application")
+Set newEmail = outlook.CreateItem(0)
+
+With newEmail
+    .To = Sheet1.Range("F420").Text
+    .CC = ""
+    .BCC = ""
+    .Subject = Sheet1.Range("I41").Text & Sheet1.Range("C11").Text
+    .Body = "Dear Concern," & vbCrLf & "Greetings! Please help us to share the rate for this below shipment."
+    .display
+
+    Set xInspect = newEmail.GetInspector
+    Set pageEditor = xInspect.WordEditor
+    
+    Sheet1.Range("B3:J20").Copy
+    
+    pageEditor.Application.Selection.Start = Len(.Body)
+    pageEditor.Application.Selection.End = pageEditor.Application.Selection.Start
+    pageEditor.Application.Selection.PasteAndFormat (wdFormatPlainText)
+    .display
+    Set pageEditor = Nothing
+    Set xInspect = Nothing
+    
+End With
+Sheets("DataBase").Visible = True
+
+Range("C11").Select
+    Selection.Copy
+    Worksheets("DataBase").Select
+    Range("N2").Select
+    Selection.End(xlDown).Select
+    Range("M1048576").Select
+    Selection.End(xlToLeft).Select
+    Range("B1048576").Select
+    Selection.End(xlUp).Select
+    ActiveCell.Offset(1, 0).Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Sheets("Rate Quotation Macro").Select
+    ActiveCell.Offset(2, 0).Range("A1").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Sheets("DataBase").Select
+    ActiveCell.Offset(0, 1).Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Sheets("Rate Quotation Macro").Select
+    ActiveCell.Offset(-1, 0).Range("A1").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Sheets("DataBase").Select
+    ActiveCell.Offset(0, 1).Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Sheets("Rate Quotation Macro").Select
+    ActiveCell.Offset(-3, 0).Range("A1").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Sheets("DataBase").Select
+    ActiveCell.Offset(0, 1).Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Sheets("Rate Quotation Macro").Select
+    ActiveCell.Offset(5, 0).Range("A1").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Sheets("DataBase").Select
+    ActiveCell.Offset(0, 1).Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Sheets("Rate Quotation Macro").Select
+    ActiveCell.Offset(-5, 3).Range("A1").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Sheets("DataBase").Select
+    ActiveCell.Offset(0, 1).Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Sheets("Rate Quotation Macro").Select
+    ActiveCell.Offset(1, 0).Range("A1").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Sheets("DataBase").Select
+    ActiveCell.Offset(0, 1).Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Sheets("Rate Quotation Macro").Select
+    ActiveCell.Offset(1, 0).Range("A1").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Sheets("DataBase").Select
+    ActiveCell.Offset(0, 1).Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Sheets("Rate Quotation Macro").Select
+    ActiveCell.Offset(2, 0).Range("A1").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Sheets("DataBase").Select
+    ActiveCell.Offset(0, 1).Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Sheets("Rate Quotation Macro").Select
+    ActiveCell.Offset(-3, 3).Range("A1").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Sheets("DataBase").Select
+    ActiveCell.Offset(0, 1).Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Sheets("Rate Quotation Macro").Select
+    ActiveCell.Offset(1, 0).Range("A1").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Sheets("DataBase").Select
+    ActiveCell.Offset(0, 1).Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Sheets("Rate Quotation Macro").Select
+    ActiveCell.Offset(2, 0).Range("A1").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Sheets("DataBase").Select
+    ActiveCell.Offset(0, 1).Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Sheets("Rate Quotation Macro").Select
+    ActiveCell.Offset(1, -3).Range("A1").Select
+    Application.CutCopyMode = False
+    Selection.Copy
+    Sheets("DataBase").Select
+    ActiveCell.Offset(0, 1).Range("A1").Select
+    Selection.PasteSpecial Paste:=xlPasteValues, Operation:=xlNone, SkipBlanks _
+        :=False, Transpose:=False
+    Sheets("Rate Quotation Macro").Select
+    Range("N3").Select
+Sheets("DataBase").Visible = False
+
+Set newEmail = Nothing
+Set outlook = Nothing
+
+End Sub
+
+
+
